@@ -1,0 +1,241 @@
+Algoritmo "PROJETO DO 1 BIMESTE"
+// Disciplina  :  [Linguagem e Lógica de Programação]
+// Professor   : Aldo Henrique
+// Descrição   : rojeto do 1 bimestre
+// Autor(a)    : Álex Clayton Oliveira Ferreira
+// Data atual  : 07/04/2018
+Var
+   // Seção de Declarações das variáveis
+   n1,n2,soma,x,z,quanti,contador, idade,primo: inteiro
+   sexo: caracter
+   Op: inteiro
+   divi, subt: real
+   // dividido pois estava ficando confusu todas as variaveis juntas
+   sexoM, sexoF,idadeM, idadeF, idadeMedia,idadefinalF,idadefinalM:real
+   idadeMediafinal: real
+   // a baixo estão todas a variaveis da questão 6, ficaram bagunçadas porque fiz  a questão 6 em outro tela.
+   casos, num_int,copia_num, binario, binario1, decimal: real
+   a,b,c,d,f,g,h,i,j: inteiro
+   b1,b2,b3,b4,b5,b6,b7,b8: real
+   bin:vetor[1..8] de inteiro
+   opc: caracter
+Inicio
+   // aqui começo o menu que o usuario ira ver quando executar o programa.
+   enquanto op <> 7 faca
+      escreval ("escolha uma opção")
+      escreval ("1- Soma ")
+      escreval("2- subtração")
+      escreval("3- divisão")
+      escreval ("4- Faixa Etária")
+      escreval("5- Números primos")
+      escreval("6- Mudança de Base")
+      escreval ("7- Sair")
+      leia (Op)
+      // no decorrer do codigo, coloquei diversos escreval apenas para saltar as linhas
+      // a baixo esta a 1 opção, a de Soma!!
+      se (Op = 1) entao
+         escreval ("digite o primeiro numero: ")
+         leia (n1)
+         escreval ("")
+         escreval ("digite o segundo numero: ")
+         leia (n2)
+         escreval("")
+         soma<- n1+n2
+         escreval ("A soma dos numeros é ", soma)
+         escreval("")
+         escreval("")
+      fimse
+      // a baixo esta a segunda opção, a subtração!!
+      // usei novamente n1 e n2, pois descidi aproveitar a variavel.
+      se (Op = 2) entao
+         escreval ("digite o primeiro numero: ")
+         leia (n1)
+         escreval ("digite o segundo numero: ")
+         leia (n2)
+         subt<- n1-n2
+         escreval ("A subtração dos 2 numeros é ", subt )
+         escreval("")
+         escreval("")
+
+      fimse
+      // a baixo esta a terceira opção, a divisão
+      // usei novamente n1 e n2, pois descidi aproveitar a variavel.
+      se (Op = 3) entao
+         escreval ("digite o primeiro numero: ")
+         leia (n1)
+         escreval("")
+         escreval ("digite o segundo numero: ")
+         leia (n2)
+         escreval("")
+         divi <- n1/n2
+         escreval ("A divisão dos numeros é: ", divi)
+         escreval("")
+         escreval("")
+      fimse
+      // a baixo  esta a quarta opção, a media das pessoas e
+      // a media de cada sexo
+      se (op = 4) entao
+         // defini o sexo e a idade  M e F para oder contar o total e dividir no final para achar a media
+         sexoM <-0
+         sexoF <-0
+         idadeM <-0
+         idadeF <-0
+         idadeMedia <-0
+         escreval("Informe a quantidade de Pessoas!")
+         leia(quanti)
+         para x de 1 ate quanti passo 1 faca
+            escreval("Informe a Idade")
+            leia(idade)
+            escreval ("informe o sexo: 'M' ara Mascolino e 'F' ara Feminino ")
+            leia (sexo)
+            se sexo = "M" entao
+               idadeM <- idadeM + idade
+               sexoM <- sexoM+1
+               //media final mascolina
+               idadefinalM <- idadeM/sexoM
+            senao
+               idadeF <- IdadeF + idade
+               sexoF <- sexoF+1
+               //media final feminina
+               idadefinalF <- idadeF/sexoF
+            fimse
+            // aqui esta o calculo da media final das idades
+            idadeMedia <- idade + idadeMedia
+            idadeMediafinal <-idadeMedia/ quanti
+         fimpara
+         escreval ("A média das idades é: ", idadeMediafinal)
+         escreval ("A média das idades Mascolinas é: ", idadefinalM)
+         escreval ("A média das Idades Femininas é: ", idadefinalF)
+         escreval  ("")
+         escreval ("")
+      fimse
+      // a baixo a questão 5, onde mostrara os numeros primos
+      // usei novamente n1, pois descidi aproveitar a variavel.
+      se (op = 5) entao
+         escreval ("informe um numero: ")
+         leia (n1)
+         soma<- 0
+         para x de 1 ate n1 faca
+            primo <- 0
+            //esta segunda incrementação e apenas para checar a primera, para achar os numeros primos
+            para z de 1 ate x faca
+               se ( x mod  z=0) entao
+                  primo <- primo +1
+               fimse
+            fimpara
+            // tirei a variavel soma_primo, pois achei melhor aproveitar as que ja estavam prontas
+            // todo numero primo e divisivel por ele e por 1, segundo a regra a cima o numero so sera primo quando a variavel primo for 2
+            // por esse motivo criei este segundo SE... ENTAO
+            se (primo = 2) entao
+               soma <- soma + z
+               escreval (z)
+            fimse
+         fimpara
+         // por fim a baixo esta a soma dos numeros primos!!!
+         escreval (" A soma dos numeros primos é: ", soma)
+      fimse
+      escreval
+      escreval
+      escreval
+      se (op = 6) entao
+         escreval("Informe quantos casos você quer fazer")
+         leia(casos)
+         // no enunciado da questão pede o numero de casos maior que zero por isso esse primeiro se.
+         se casos<=0 entao
+            repita
+               escreval("Informe um número de casos correto que seja maior que zero")
+               leia(casos)
+            ate casos>0
+         fimse
+         repita
+            escreval("Qual operação deseja fazer?")
+            escreval("D Para transformar de decimal para Binario")
+            escreval("B para transformar de binário para decimal")
+            leia(opc)
+            se (opc="d") entao
+               escreval("escreva um número inteiro")
+               leia(num_int)
+               //mais a frente o número inteiro, será dividido, entao coloquei uma outra váriavel para pegar o número dele.
+               copia_num<- num_int
+               repita
+                  se (num_int mod 2) = 0 entao
+                     binario <- 0 + binario
+                  senao
+                     binario <- 1 + binario
+                  fimse
+                  num_int <- Num_int div 2
+                  escreval("O número inteiro:",copia_num, " vira ",binario, " em binário")
+               fimse
+               binario<-binario1
+               se (opc="b") entao
+                  // De A a I são as linhas de calculo binario
+                  a<-1
+                  b<-2
+                  c<-4
+                  d<-8
+                  f<-16
+                  g<-32
+                  h<-64
+                  i<-128
+                  para j de 1 ate 8 passo 1 faca
+                     // a baixo o usuário digitará os números binarios, com o programa falando para ele em qual linha ele está
+                     escreval("digite o bit, (você está na sequencia",j," de 8)")
+                     leia(bin[j])
+                     //coloquei  a baixo um se para monitorirar os binarios entre 0 e 1, se não forem o usuario não entrara no loopin
+                     se (bin[j]<>0) e (bin[j]<>1) entao
+                        repita
+                           escreval("digite novamente outro número")
+                           leia(bin[j]) /
+                        ate (bin[j]=0) ou (bin[j]=1)
+                     fimse
+                     //da forma que eu fiz, ele irá anotar o número naquela linha, então será multiplicado os números da regra binária feita lá em cima, com base na sequencia que ele está
+                     //e esses b(1 até 8) ssão as variaves de armazenamento.
+                     se (bin[1]=1) entao
+                        b1<-bin[1]
+                        bin[1]<-bin[1]*a
+                     fimse
+                     se (bin[2]=1) entao
+                        b2<-bin[2]
+                        bin[2]<-bin[2]*b
+                     fimse
+                     se (bin[3]=1) entao
+                        b3<-bin[3]
+                        bin[3]<-bin[3]*c
+                     fimse
+                     se (bin[4]=1) entao
+                        b4<-bin[4]
+                        bin[4]<-bin[4]*d
+                     fimse
+                     se (bin[5]=1) entao
+                        b5<-bin[5]
+                        bin[5]<-bin[5]*f
+                     fimse
+                     se (bin[6]=1) entao
+                        b6<-bin[6]
+                        bin[6]<-bin[6]*g
+                     fimse
+                     se (bin[7]=1) entao
+                        b7<-bin[7]
+                        bin[7]<-bin[7]*h
+                     fimse
+                     se (bin[8]=1) entao
+                        b8<-bin[8]
+                        bin[8]<-bin[8]*i
+                     fimse
+                  fimpara
+                  // a baixo é o calculo binario
+                  decimal<-bin[1]+bin[2]+bin[3]+bin[4]+bin[5]+bin[6]+bin[7]+bin[8]
+                  escreval("o número em binário",b1,b2,b3,b4,b5,b6,b7,b8, " vira",decimal," em decimal")
+               fimse
+               // a baixo coloquei o caminho para os casos chegarem a 0
+               casos:=casos-1
+            ate casos=0
+
+         fimse
+         // a baixo a ultima opção, a de Sair do sistema!
+         se (op = 7) entao
+         limpatela
+            escreval(" Obrigado por utilizar este programa")
+         fimse
+      fimenquanto
+Fimalgoritmo
